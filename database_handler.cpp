@@ -24,10 +24,10 @@ void DatabaseHandler::connect() {
     try {
         pqxx::connection conn(connectionString);
         if (conn.is_open()) {
-            cout << "✓ Connected to database successfully!" << endl;
+            cout << "Connected to database successfully!" << endl;
         }
     } catch (const exception& e) {
-        cerr << "✗ Database connection failed: " << e.what() << endl;
+        cerr << "Database connection failed: " << e.what() << endl;
     }
 }
 
@@ -77,7 +77,7 @@ vector<Expense> DatabaseHandler::getAllExpenses() {
         txn.commit();
         
     } catch (const exception& e) {
-        cerr << "✗ Error fetching expenses: " << e.what() << endl;
+        cerr << "Error fetching expenses: " << e.what() << endl;
     }
     
     return expenses;
@@ -94,13 +94,13 @@ void DatabaseHandler::delExpense(int id) {
         txn.commit();
         
         if (res.affected_rows() > 0) {
-            cout << "✓ Expense #" << id << " deleted successfully!" << endl;
+            cout << "Expense #" << id << " deleted successfully!" << endl;
         } else {
-            cout << "✗ Expense #" << id << " not found!" << endl;
+            cout << "Expense #" << id << " not found!" << endl;
         }
         
     } catch (const exception& e) {
-        cerr << "✗ Error deleting expense: " << e.what() << endl;
+        cerr << "Error deleting expense: " << e.what() << endl;
     }
 }
 
@@ -120,7 +120,7 @@ int DatabaseHandler::getTotalExpenses() {
         }
         
     } catch (const exception& e) {
-        cerr << "✗ Error calculating total: " << e.what() << endl;
+        cerr << "Error calculating total: " << e.what() << endl;
     }
     
     return 0;
