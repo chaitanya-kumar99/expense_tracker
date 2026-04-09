@@ -8,7 +8,7 @@ void ExpenseManager::addExpenses(int amount, string description) {
     int id = db.insertExpense(amount, description);
     
     if (id > 0) {
-        cout << "✓ Expense added successfully!" << endl;
+        cout << "Expense added successfully!" << endl;
         cout << "  ID: " << id << endl;
         cout << "  Amount: $" << amount << endl;
         cout << "  Description: " << description << endl;
