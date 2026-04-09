@@ -1,0 +1,15 @@
+## Dependencies
+- libpqxx
+- PostgreSQL
+
+## Build
+g++ -std=c++17 main.cpp expense_manager.cpp database_handler.cpp -lpqxx -lpq -o expense
+
+## Setup
+psql -U postgres -f schema.sql
+
+## Usage
+./expense add 500 "Lunch"
+./expense list
+./expense total
+./expense delete 1
